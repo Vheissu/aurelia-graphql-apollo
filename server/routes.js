@@ -9,6 +9,18 @@ router.get('/users', (req, res, next) => {
   return res.json(users);
 });
 
+router.post('/users', (req, res, next) => {
+  const user = req.body;
+
+  if (user) {
+    users.push(user);
+
+    return res.status(200).send(user);
+  }
+
+  return res.status(400).send(false);
+});
+
 router.get('/users/:userId', (req, res, next) => {
   const findUser = find(users, { id: `${req.params.userId}` });
 
@@ -19,16 +31,30 @@ router.get('/users/:userId', (req, res, next) => {
   return res.status(400).json({ error: 'USER_NOT_FOUND' });
 });
 
+router.put('/users/:userId', (req, res, next) => {
+  const findUserIndex = findIndex(users, { id: `${req.params.userId}` });
+
+  if (findUserIndex >= 0) {
+    const user = { ...users[findUserIndex], ...req.body };
+
+    users.splice(findUserIndex, 1, user);
+
+    return res.status(200).send(user);
+  }
+
+  return res.status(400).send(null);
+});
+
 router.delete('/users/:userId', (req, res, next) => {
   const findUserIndex = findIndex(users, { id: `${req.params.userId}` });
 
-  if (findUserIndex) {
+  if (findUserIndex >= 0) {
     users.splice(findUserIndex, 1);
 
-    return true;
+    res.status(200).send(true);
   }
 
-  return false;
+  res.status(200).send(false);
 });
 
 export default router;

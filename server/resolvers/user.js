@@ -28,6 +28,25 @@ export default {
 
         return true;
       } catch (e) {
+        console.error(e);
+        return false;
+      }
+    },
+
+    createUser: async(_, { input }, { http }) => {
+      try {
+        const user = await http.post('users', input);
+
+        return user;
+      } catch (e) {
+        return null;
+      }
+    },
+
+    updateUser: async(_, { id, input }, { http }) => {
+      try {
+        await http.put(`users/${id}`, input);
+      } catch (e) {
         return false;
       }
     }

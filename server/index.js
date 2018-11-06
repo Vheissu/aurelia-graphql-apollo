@@ -32,6 +32,7 @@ const path = '/graphql';
 server.applyMiddleware({ app, path });
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use('/api', routes);
 

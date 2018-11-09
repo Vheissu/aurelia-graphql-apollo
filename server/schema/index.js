@@ -1,7 +1,9 @@
 import { gql } from 'apollo-server-express';
 
-import userSchema from './user';
-
+import Auth from './auth';
+import Comment from './comment';
+import User from './user';
+import Post from './post';
 
 const linkSchema = gql`
   type Query {
@@ -17,4 +19,4 @@ const linkSchema = gql`
   }
 `;
 
-export default [linkSchema, userSchema];
+export default [linkSchema, Auth, Comment, User, Post];

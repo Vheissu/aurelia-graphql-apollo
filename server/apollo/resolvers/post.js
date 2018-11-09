@@ -6,26 +6,21 @@ export default {
         post: (_, { id }, { db }) => db.post.findById(id),
     },
     Post: {
-        author: (_, args, context) => _.getAuthor(),
+        author: (_, args) => _.getAuthor(),
     },
     Mutation: {
-        createPost: (_, { title, body, userId }, { db }) =>
+        createPost: (_, { input, userId }, { db }) =>
             db.post.create({
-                title: title,
-                body: body,
+                ...input,
                 userId: userId
             }),
-        updatePost: (_, { title, content, id }, { db }) =>
-            db.post.update(
+        updatePost: (_, { id, input }, { db }) =>
+            db.post.update(input,
                 {
-                title: title,
-                content: content
-            },
-            {
-                where: {
-                    id: id
-                }
-            }),
+                    where: {
+                        id: id
+                    }
+                }),
         deletePost: (_, { id }, { db }) =>
             db.post.destroy({
                 where: {

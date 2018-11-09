@@ -1,4 +1,5 @@
 export default {
   debug: true,
-  testing: true
+  testing: true,
+  graphqlEndpoint: 'http://localhost:3000/graphql'
 };

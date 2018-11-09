@@ -1,4 +1,8 @@
-# aurelia-graphql-apollo
+# WIP
+
+Please do not attempt to base any applications off of just yet. This is still in progress, close to being finalised, but not quite complete just yet.
+
+# Aurelia + GraphQL + Apollo Client and Apollo Server
 An example application showcasing how to integrate Apollo Client and Server into an Aurelia application.
 
 ## Client

@@ -1,12 +1,35 @@
-import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import ApolloClient, { Operation } from 'apollo-boost';
 import gql from 'graphql-tag';
 
-const cache = new InMemoryCache();
+import environment from 'environment';
 
+// Standard client
+// Perfect if you're not working with authentication
 const client = new ApolloClient({
-    uri: 'http://localhost:3000/graphql',
-    cache
+  uri: environment.graphqlEndpoint
 });
+
+// Client with modification of headers
+// Use the following if you want to send a token
+// along with every request to Apollo
+
+/*
+const client = new ApolloClient({
+    uri: environment.apiUrl,
+    request: async (operation: Operation) => {
+        // Auth might be a service which provides you a token
+        const token = await auth.getToken();
+        
+        // Set the authorization header with the token value
+        operation.setContext(context => ({
+            headers: {
+                ...context.headers,
+                authorization: token
+            }
+        }));
+    }
+});
+*/
 
 const query = (query) => client.query({ query: gql(query) });
 

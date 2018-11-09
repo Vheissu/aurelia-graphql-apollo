@@ -1,3 +1,16 @@
+import {RouterConfiguration, Router} from 'aurelia-router';
+import { PLATFORM } from 'aurelia-pal';
+
 export class App {
-  message = 'Hello World!';
+    private router: Router;
+
+    configureRouter(config: RouterConfiguration, router: Router): void {
+        this.router = router;
+
+        config.title = 'Aurelia Blog';
+
+        config.map([
+            { route: ['', 'home'], name: 'homeRoute', moduleId: PLATFORM.moduleName('./routes/home'), nav: true,  title: 'Home' }
+        ]);
+    }
 }

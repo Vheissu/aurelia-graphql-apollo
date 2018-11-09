@@ -31,6 +31,8 @@ const client = new ApolloClient({
 });
 */
 
+// Convenient helper method for queries and mutations
 const query = (query) => client.query({ query: gql(query) });
+const mutate = (query) => client.mutate({ mutation: gql(query) });
 
 export { client, query };

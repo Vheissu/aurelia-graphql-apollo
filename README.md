@@ -3,7 +3,15 @@
 Please do not attempt to base any applications off of just yet. This is still in progress, close to being finalised, but not quite complete just yet.
 
 # Aurelia + GraphQL + Apollo Client and Apollo Server
-An example application showcasing how to integrate Apollo Client and Server into an Aurelia application.
+
+An example blogging application built with Aurelia and Apollo Client as well as Apollo Server.
+
+## Features
+
+- Aurelia for front-end
+- Apollo Client for front-end data mechanism
+- Apollo Server for the backend data layer
+- Node.js for the server as well as ExpressJS for routing
 
 ## Client
 

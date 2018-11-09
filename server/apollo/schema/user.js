@@ -4,6 +4,7 @@ export default gql`
     extend type Query {
         users: [User!]
         user(id: ID!): User
+        posts: [Post!]!
         me: User
     }
 
@@ -15,6 +16,7 @@ export default gql`
         id: ID!
         name: String!,
         email: String!,
+        password: String
         createdAt: String!
         updatedAt: String!
     }

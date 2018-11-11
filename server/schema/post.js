@@ -3,8 +3,8 @@ import { gql } from 'apollo-server-express';
 export default gql`
   extend type Query {
     posts: [Post!]
-    post(id: ID!): Post!
-    postByslug(slug: String): Post!
+    post(slug: String!): Post!
+    postById(id: ID!): Post!
   }
 
   enum PostType {

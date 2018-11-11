@@ -10,7 +10,8 @@ export class App {
         config.title = 'Aurelia Blog';
 
         config.map([
-            { route: ['', 'home'], name: 'homeRoute', moduleId: PLATFORM.moduleName('./routes/home'), nav: true,  title: 'Home' }
+            { route: ['', 'home'], name: 'homeRoute', moduleId: PLATFORM.moduleName('./routes/home'), nav: true,  title: 'Home' },
+            { route: '/post/:postSlug', name: 'postRoute', moduleId: PLATFORM.moduleName('./routes/post'), nav: true,  title: 'Post' }
         ]);
     }
 }

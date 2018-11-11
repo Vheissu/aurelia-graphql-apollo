@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "title": "My Blog Post",
+        "slug": "my-blog-post",
+        "body": "Now what? Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Shinier than yours, meatbag. The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate.",
+        "status": "published",
+        "type": "post",
+        "createdAt": "Saturday, October 8, 2016 6:33 PM",
+        "updatedAt": null
+    },
+    {
+        "id": "2",
+        "title": "Just Another Test",
+        "slug": "just-another-test",
+        "body": "Now what? Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Shinier than yours, meatbag. The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate.",
+        "status": "published",
+        "type": "post",
+        "createdAt": "Saturday, October 8, 2016 6:33 PM",
+        "updatedAt": null 
+    },
+    {
+        "id": "3",
+        "title": "Completely Different Blog Post Title",
+        "slug": "completely-different-blog-post-title",
+        "body": "Now what? Humans dating robots is sick. You people wonder why I'm still single? It's 'cause all the fine robot sisters are dating humans! Shinier than yours, meatbag. The alien mothership is in orbit here. If we can hit that bullseye, the rest of the dominoes will fall like a house of cards. Checkmate.",
+        "status": "published",
+        "type": "post",
+        "createdAt": "Saturday, October 8, 2016 6:33 PM",
+        "updatedAt": null 
+    }
+]

@@ -25,6 +25,7 @@ export default gql`
 
   type Post {
       id: String!
+      userId: ID!
       author: User!
       title: String!
       slug: String!
@@ -47,7 +48,7 @@ export default gql`
 
   extend type Mutation {
     deletePost(id: ID!): Post!
-    createPost(input: PostInput): Post!
+    createPost(input: PostInput!, userId: ID!): Post!
     updatePost(id: ID!, input: PostInput): Post!
   }
 `;

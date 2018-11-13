@@ -1,4 +1,10 @@
+import bcrypt from 'bcrypt';
+import jsonwebtoken from'jsonwebtoken';
+
 export default (sequelize, DataTypes) => {
+    const SchemaOptions = {
+        freezeTableName: true
+    };
 
     const User = sequelize.define('user', {
         id: {
@@ -13,15 +19,20 @@ export default (sequelize, DataTypes) => {
             unique: true
         },
         password: DataTypes.STRING
-    },
-        {
-            freezeTableName: true,
-        }
-    );
+    }, SchemaOptions);
 
     User.associate = (models) => {
         User.hasMany(models.post);
     };
+
+    User.beforeSave(async (user) => {
+        if (user.changed('password')) {
+            const salt = await bcrypt.genSalt(10);
+            const hash = await bcrypt.hash(user.password, salt);
+
+            user.password = hash;
+        }
+    });
 
     return User;
 

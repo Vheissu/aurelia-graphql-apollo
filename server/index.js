@@ -26,7 +26,7 @@ const server = new ApolloServer({
     playground: true,
     context: ({ req }) => {
         return {
-            [EXPECTED_OPTIONS_KEY]: createContext(db),
+            [EXPECTED_OPTIONS_KEY]: createContext(db.sequelize),
             user: req.user,
         }
     }

@@ -1,6 +1,6 @@
 # WIP
 
-Please do not attempt to base any applications off of just yet. This is still in progress, close to being finalised, but not quite complete just yet.
+Please do not attempt to base any applications off of just yet. This is still in progress, close to being finalised, but not quite complete just yet. **Do NOT base any applications off of this skeleton just yet, unless you know what you are doing and where the gaps are**
 
 # Aurelia + GraphQL + Apollo Client and Apollo Server
 

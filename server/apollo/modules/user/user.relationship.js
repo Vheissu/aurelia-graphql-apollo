@@ -1,3 +1,6 @@
+import { resolver } from 'graphql-sequelize';
+import models from '../../../database/models';
+
 export const Relationship = {
-    posts: (_, args, context) => _.getPosts()
+    posts: resolver(models.user.associations.posts)
 };

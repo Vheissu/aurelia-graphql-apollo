@@ -1,9 +1,27 @@
 import bcrypt from 'bcrypt';
-import jsonwebtoken from'jsonwebtoken';
+import jsonwebtoken from 'jsonwebtoken';
 
 export default (sequelize, DataTypes) => {
     const SchemaOptions = {
-        freezeTableName: true
+        freezeTableName: true,
+        instanceMethods: {
+            async comparePassword(pw) {
+                if (!this.password) {
+                    throw new Error('Does not have password');
+                }
+
+                const pass  = await bcrypt.compare(pw, this.password);
+
+                if (!pass) {
+                    throw 'Invalid password';
+                }
+
+                return this;
+            },
+            getJwt() {
+                return 'Bearer ' + jsonwebtoken.sign({ id: this.id }, 'myencryptionkey', { expiresIn: '24h' });
+            }
+        }
     };
 
     const User = sequelize.define('user', {

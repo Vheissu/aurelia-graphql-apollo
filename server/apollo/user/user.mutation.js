@@ -1,24 +1,30 @@
-import { resolver} from 'graphql-sequelize';
+import { resolver } from 'graphql-sequelize';
+
+import to from 'await-to-js';
+
 import models from '../../database/models';
 
-import { ApolloError } from 'apollo-server-express';
+const User = models.user;
 
 export const Mutation = {
-    createUser: resolver(models.user, {
-      before: async (findOptions, { data }) => {
-        try {
-            const user = await User.create(data);
+    createUser: resolver(User, {
+        before: async (findOptions, { data }) => {
+            let err, user;
+
+            [err, user] = await to(User.create(data));
+
+            if (err) {
+                throw err;
+            }
 
             findOptions.where = { id: user.id };
-    
+
             return findOptions;
-        } catch (e) {
-            return new ApolloError(e);
+        },
+        after: (user) => {
+            user.jwt = user.getJwt();
+            
+            return user;
         }
-      },
-      after: (user) => {
-        //user.jwt = user.getJwt();
-        return user;
-      }
     })
 };

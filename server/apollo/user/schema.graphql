@@ -16,11 +16,12 @@ type Mutation {
 }
 
 type User {
-    id: ID!
-    name: String!,
-    email: String!,
+    id: ID
+    name: String,
+    email: String,
     password: String
-    createdAt: String!
-    updatedAt: String!
-    posts: [Post!]!
+    createdAt: String
+    updatedAt: String
+    posts: [Post]
+    jwt: String
 }

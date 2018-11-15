@@ -3,25 +3,7 @@ import jwt from 'jsonwebtoken';
 
 export default (sequelize, DataTypes) => {
     const SchemaOptions = {
-        freezeTableName: true,
-        instanceMethods: {
-            async comparePassword(pw) {
-                if (!this.password) {
-                    throw new Error('No password');
-                }
-
-                const pass = await bcrypt.compare(pw, this.password);
-
-                if (!pass) {
-                    throw 'Invalid password';
-                }
-
-                return this;
-            },
-            getJwt() {
-                return 'Bearer ' + jwt.sign({ id: this.id }, 'myencryptionkey', { expiresIn: '24h' });
-            }
-        }
+        freezeTableName: true
     };
 
     const User = sequelize.define('user', {
@@ -51,6 +33,24 @@ export default (sequelize, DataTypes) => {
             user.password = hash;
         }
     });
+
+    User.prototype.comparePassword = async function(pw) {
+        if (!this.password) {
+            throw new Error('No password');
+        }
+
+        const pass = await bcrypt.compare(pw, this.password);
+
+        if (!pass) {
+            throw 'Invalid password';
+        }
+
+        return this;
+    }
+
+    User.prototype.getJwt = function() {
+        return 'Bearer ' + jwt.sign({ id: this.id }, 'thisismysecretvalue', { expiresIn: '24h' });
+    }
 
     return User;
 };

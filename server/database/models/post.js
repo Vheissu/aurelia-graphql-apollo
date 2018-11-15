@@ -17,7 +17,7 @@ export default (sequelize, DataTypes) => {
             type: DataTypes.TEXT,
             allowNull: false
         },
-        status: DataTypes.BOOLEAN,
+        status: DataTypes.STRING,
         type: DataTypes.STRING,
         commentsEnabled: DataTypes.BOOLEAN
     },

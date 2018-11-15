@@ -1,4 +1,12 @@
+import models from '../../database/models';
+
+const Post = models.post;
+
 export const Query = {
-    posts: (_, args, { db }) => db.post.findAll(),
-    post: (_, { id }, { db }) => db.post.findById(id)
+    posts: async (_) => {
+        return await Post.findAll();
+    },
+    post: async (_, { id }) => {
+        return await Post.findById(id);
+    }
 };

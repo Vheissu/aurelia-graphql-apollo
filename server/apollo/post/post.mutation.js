@@ -1,20 +1,18 @@
+import models from '../../database/models';
+
+const Post = models.post;
+
 export const Mutation = {
-    createPost: (_, { input, userId }, { db }) =>
-        db.post.create({
+    createPost: async (_, { input, userId }) => {
+        return await Post.create({
             ...input,
             userId: userId
-        }),
-    updatePost: (_, { id, input }, { db }) =>
-        db.post.update(input,
-            {
-                where: {
-                    id: id
-                }
-            }),
-    deletePost: (_, { id }, { db }) =>
-        db.post.destroy({
-            where: {
-                id: id
-            }
-        })
+        });
+    },
+    updatePost: async (_, { id, input }) => {
+        return await Post.update(input, { where: { id: id } });
+    },
+    deletePost: async (_, { id }) => {
+        return await Post.destroy({ where: { id: id } })
+    }
 };

@@ -27,7 +27,7 @@ type Post {
     title: String!
     slug: String!
     body: String!
-    status: Status!
+    status: String!
     type: PostType!
     comments(limit: Int, offset: Int): [Comment!]
     commentsEnabled: Boolean!
@@ -40,7 +40,7 @@ input PostInput {
     slug: String
     body: String!
     commentsEnabled: Boolean
-    status: Status
+    status: String
 }
 
 type Mutation {

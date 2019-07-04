@@ -47,6 +47,6 @@ export class Editor {
           this.updated({ markdown, html });
         }
       }
-    });
+    } as any);
   }
 }

@@ -29,7 +29,7 @@
     "mysql2": "^1.6.4",
     "nodemon": "^1.18.6",
     "schemaglue": "^4.0.2",
-    "sequelize": "^5.9.2",
+    "sequelize": "^5.15.1",
     "sequelize-slugify": "^0.7.0",
     "tui-editor": "^1.4.4-alpha.0"
   },

@@ -25,7 +25,7 @@
     "graphql-sequelize": "^9.0.4",
     "graphql-tag": "^2.10.0",
     "jsonwebtoken": "^8.3.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "mysql2": "^1.6.4",
     "nodemon": "^1.18.6",
     "schemaglue": "^4.0.2",

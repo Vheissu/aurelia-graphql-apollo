@@ -14,7 +14,7 @@
     "aurelia-bootstrapper": "^2.3.0",
     "aurelia-fetch-client": "^1.6.0",
     "aurelia-polyfills": "^1.3.0",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dataloader-sequelize": "^2.0.1",

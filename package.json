@@ -18,7 +18,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dataloader-sequelize": "^2.0.1",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-jwt": "^5.3.1",
     "graphql": "^14.0.2",
     "graphql-relay": "^0.6.0",
